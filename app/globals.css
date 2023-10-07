@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
 
+}
 button {
     background-color: #FF7300;
 }
@@ -10,4 +16,16 @@ button:hover{
     transform: scale(1.026);
     transition: all  ease-in-out .4s;
 
+}
+input, select{
+    padding: 16px;
+    width: 100%;
+    border: 1px solid rgba(226, 226, 226, 0.74);
+    border-radius: 5px;
+    margin-top: 1rem;
+    
+
+}
+option::placeholder{
+    color:  rgba(226, 226, 226, 0.74);
 }
