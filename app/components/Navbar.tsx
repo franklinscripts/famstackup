@@ -31,8 +31,12 @@ export default function Navbar() {
         {navShow && (
           <div className="sm:hidden ">
             <div className="flex flex-col  gap-4 items-center text-black text-[14px]  p-[4em]   absolute top-8 bg-slate-100  border  border-black border-opacity-10 rounded-2xl right-16">
-              <Link href="">Login</Link>
-              <Link href="">Sign Up</Link>
+            <Link href={''} >
+              <LoginModal className=" bg-inherit" text="Login" />
+            </Link>
+            <Link href={''}  >
+            <RegisterModal className=" bg-inherit" text="Sign Up" />
+            </Link>
               <Link href="">Contact Us</Link>
             </div>
           </div>

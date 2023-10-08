@@ -70,7 +70,7 @@ export default function LoginModal( { text, ...props }: Props ) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className=" rounded-md w-[300px] md:w-[450px]">
+        <Box sx={style} className="rounded-md w-[90%] mx-auto md:w-[450px]">
           <Image src={'/logo.png'} alt='img' className='mx-auto' width={70} height={40} />
           <Typography  className='text-center text-[14px] text-gray-600' fontWeight={600} >
             Login to continue to dashboard

@@ -59,8 +59,8 @@ export default function RegisterModal( { text, ...props }: Props ) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className=" rounded-md w-[300px] md:w-[450px]">
-        <Image src={'/logo.png'} alt='img' className='mx-auto' width={70} height={40} />
+        <Box sx={style} className=" rounded-md w-[90%] mx-auto md:w-[450px]">
+        <Image src={'/logo.png'} alt='img' className='mx-auto' width={70} height={10} />
           <Typography id="modal-modal-title"  className='text-center text-[14px]'>
             Register to start making money
           </Typography>
@@ -86,7 +86,7 @@ export default function RegisterModal( { text, ...props }: Props ) {
           <input type="text" placeholder='Age'/>
           <input type="password" placeholder='Password' />
           <input type="password" placeholder='Confirm Password' />
-          <button className='bg-[#F48856] py-4 w-full mt-5 rounded-md font-bold text-white' >Register</button>
+          <button className='bg-[#F48856] py-4 w-full mt-3 rounded-md font-bold text-white' >Register</button>
           <div className='flex flex-col gap-4 mt-8'>
             <button className='text-white bg-gray-700 p-4 w-full rounded-lg flex items-center gap-2 font-bold text-[15px]' onClick={GoogleLogin}>
               
