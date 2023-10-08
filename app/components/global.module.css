@@ -1,0 +1,7 @@
+.focus:focus{
+    background-color: #F48856;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 16px;
+    
+}

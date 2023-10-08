@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -5,7 +7,11 @@ import Modal from '@mui/material/Modal';
 import Image from 'next/image';
 import Link from 'next/link';
 import LoginModal from './LoginModal';
+import { states } from '@/public/data';
 
+import Google from '@/public/google-logo.svg'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../utils/firebase.config';
 interface Props {
   text: string,
   className: string
@@ -25,6 +31,20 @@ const style = {
 
 export default function RegisterModal( { text, ...props }: Props ) {
   const [open, setOpen] = React.useState(false);
+
+
+  const googleProvider  = new GoogleAuthProvider();
+
+  const GoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log(result.user)
+
+    } catch (error) {
+      
+    }
+  }
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -49,46 +69,15 @@ export default function RegisterModal( { text, ...props }: Props ) {
           <input type="text" placeholder='Full name'/>
           <select name="State" id="">
           <option disabled selected>State</option>
-          <option value="Abia">Abia</option>
-          <option value="Adamawa">Adamawa</option>
-          <option value="Akwa Ibom">Akwa Ibom</option>
-          <option value="Anambra">Anambra</option>
-          <option value="Bauchi">Bauchi</option>
-          <option value="Bayelsa">Bayelsa</option>
-          <option value="Benue">Benue</option>
-          <option value="Borno">Borno</option>
-          <option value="Cross River">Cross River</option>
-          <option value="Delta">Delta</option>
-          <option value="Ebonyi">Ebonyi</option>
-          <option value="Edo">Edo</option>
-          <option value="Ekiti">Ekiti</option>
-          <option value="Enugu">Enugu</option>
-          <option value="FCT">Federal Capital Territory</option>
-          <option value="Gombe">Gombe</option>
-          <option value="Imo">Imo</option>
-          <option value="Jigawa">Jigawa</option>
-          <option value="Kaduna">Kaduna</option>
-          <option value="Kano">Kano</option>
-          <option value="Katsina">Katsina</option>
-          <option value="Kebbi">Kebbi</option>
-          <option value="Kogi">Kogi</option>
-          <option value="Kwara">Kwara</option>
-          <option value="Lagos">Lagos</option>
-          <option value="Nasarawa">Nasarawa</option>
-          <option value="Niger">Niger</option>
-          <option value="Ogun">Ogun</option>
-          <option value="Ondo">Ondo</option>
-          <option value="Osun">Osun</option>
-          <option value="Oyo">Oyo </option>
-          <option value="Plateau">Plateau</option>
-          <option value="Rivers">Rivers</option>
-          <option value="Sokoto">Sokoto</option>
-          <option value="Taraba">Taraba</option>
-          <option value="Yobe">Yobe</option>
-          <option value="Zamfara">Zamfara</option>
+          {
+            states.map((item: string) => (
+              <option value={item} key={item}>{item}</option>
+            ))
+          }
+          {/* <option value={}></option> */}
           </select>
           <select name="Gender" id="">
-            <option value="Gender" disabled>Gender</option>
+            <option value="Gender" disabled selected>Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -96,6 +85,14 @@ export default function RegisterModal( { text, ...props }: Props ) {
           <input type="password" placeholder='Password' />
           <input type="password" placeholder='Confirm Password' />
           <button className='bg-[#F48856] py-4 w-full mt-5 rounded-md font-bold text-white' >Register</button>
+          <div className='flex flex-col gap-4 mt-8'>
+            <button className='text-white bg-gray-700 p-4 w-full rounded-lg flex items-center gap-2 font-bold text-[15px]' onClick={GoogleLogin}>
+              
+              <Image src={Google} alt='image' width={30} height={30}/>
+              Sign up with google
+            </button>
+
+          </div>
 
           <span className='flex items-center gap-2 mt-3'>Already have an account ? <LoginModal className='bg-inherit text-[#F48856]' text="Login"/></span>
           </form>
