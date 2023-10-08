@@ -6,7 +6,7 @@ import Image from 'next/image';
 import RegisterModal from './RegisterModal';
 import Google from '@/public/google-logo.svg'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../utils/firebase.config';
+import { auth } from '@/firebase.config';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 interface Props {

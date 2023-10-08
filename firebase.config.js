@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyC_skscsNg68kWbAdahYORxs9K15sV92go",
-  authDomain: "famstack-7326b.firebaseapp.com",
+  authDomain: "https://famstackup.vercel.app/",
   projectId: "famstack-7326b",
   storageBucket: "famstack-7326b.appspot.com",
   messagingSenderId: "951468687369",

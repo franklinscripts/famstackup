@@ -11,7 +11,8 @@ import { states } from '@/public/data';
 
 import Google from '@/public/google-logo.svg'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../utils/firebase.config';
+import { auth } from '@/firebase.config'
+import { useRouter } from 'next/navigation';
 interface Props {
   text: string,
   className: string
@@ -31,7 +32,7 @@ const style = {
 
 export default function RegisterModal( { text, ...props }: Props ) {
   const [open, setOpen] = React.useState(false);
-
+  const router = useRouter();
 
   const googleProvider  = new GoogleAuthProvider();
 
@@ -39,6 +40,7 @@ export default function RegisterModal( { text, ...props }: Props ) {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log(result.user)
+      router.push('/dashboard')
 
     } catch (error) {
       
